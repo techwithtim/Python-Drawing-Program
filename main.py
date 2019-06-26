@@ -10,8 +10,11 @@
 #Input: Input is taken at the beginning of the program for the pixel size/rows and cols.
 # It is also taken whenever the user clicks.
 
-
-import pygame
+try:
+   import pygame
+except:
+   import install_requirements
+   import pygame
 from tkinter import *
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename, asksaveasfilename
