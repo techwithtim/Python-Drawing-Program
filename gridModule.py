@@ -6,6 +6,7 @@
 #populate the grid, therfore they are dependant of pixel.
 #------------------------------------------------------
 #Class Descriptions are given above each class.
+
 import pygame
 pygame.init()
 
@@ -31,9 +32,11 @@ class grid(object):
         pygame.display.update()
                     
     def getGrid(self):
-        return self.grid #Return the grid list
+        """Return the grid list."""
+        return self.grid
 
-    def drawGrid(self, lineColor=(0,0,0)): #This will draw the lines to create the grid, this is done so by simply creating overlapping boxes
+    def drawGrid(self, lineColor=(0,0,0)):
+        """This will draw the lines to create the grid, this is done so by simply creating overlapping boxes."""
         x = self.startx
         y = self.starty
         
@@ -45,7 +48,8 @@ class grid(object):
                 y -= self.height / self.rows 
                 pygame.draw.rect(self.screen, (0,0,0),(x, y, self.width / self.cols, self.height/ self.rows), 1)
 
-    def clicked(self, pos): #Return the position in the grid that user clicked on
+    def clicked(self, pos):
+        """Return the position in the grid that user clicked on."""
         try:
             t = pos[0]
             w = pos[1]
@@ -88,7 +92,8 @@ class pixelArt(grid):
         self.selected = self.grid[self.cols - 1][self.rows - 1]
 
         
-    def clearGrid(self): #This will set all of the pixels to the same color as the background color
+    def clearGrid(self):
+        """This will set all of the pixels to the same color as the background color."""
         for pixels in self.grid:
             for p in pixels:
                 if self.showGrid: #If the grid is to be showing we must redraw the pixels so that we can see the grid after we change their color
@@ -115,8 +120,7 @@ class colorPallet(pixelArt):
 #It uses all of the methods from the parent grid class and is a concrete class
 #The setText method takes a list of strings and displays them in the grid.
 class menu(grid):
-    def setText(self, textList): #The textList argument passed must be equal to the number of spots in the grid
-        
+    def setText(self, textList): #The textList argument passed must be equal to the number of spots in the grid      
         self.grid = []
         # Create textObjects in the grid
         for i in range(self.cols):
@@ -190,7 +194,7 @@ class pixel():
         return self.color
 
     def getNeighbors(self, grid):
-        # Get the neighbours of each pixel in the grid, this is used for drawing thicker lines
+        """Get the neighbours of each pixel in the grid, this is used for drawing thicker lines."""
         i = self.col #the var i is responsible for denoting the current col value in the grid
         j = self.row #the var j is responsible for denoting the current row value in the grid
         rows = self.rows
@@ -198,13 +202,13 @@ class pixel():
 
         #Horizontal and vertical neighbors
         if i < cols-1: #Right
-            self.neighbors.append(grid[i + 1][j])
-        if i > 0: #Left
-            self.neighbors.append(grid[i - 1][j])
+            self.neighbors.append(grid[i+1][j])
+        if i > 0:      #Left
+            self.neighbors.append(grid[i-1][j])
         if j < rows-1: #Up
-            self.neighbors.append(grid[i][j + 1])
-        if j > 0 : #Down
-            self.neighbors.append(grid[i][j - 1])
+            self.neighbors.append(grid[i][j+1])
+        if j > 0 :     #Down
+            self.neighbors.append(grid[i][j-1])
 
             
         #Diagonal neighbors  
@@ -221,8 +225,5 @@ class pixel():
             self.neighbors.append(grid[i + 1][j + 1])
         
     def neighborsReturn(self):
-        return self.neighbors #Return a list of the neighbours of the current pixel
-
-        
-
-
+        """Return a list of the neighbours of the current pixel."""
+        return self.neighbors
