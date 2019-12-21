@@ -10,7 +10,7 @@ A python program similar to Microsoft paint. It allows you to use a variety of d
 
 You can also run Python-Drawing-Program in Gitpod, a free online dev environment for GitHub:
 
-If you're intersted in a paid subscription with GitPod use the coupon code: **TECHWITHTIM2FQBMX**
+If you're intersted in a paid subscription with GitPod use the coupon code: **TECHWITHTIM19**
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/techwithtim/Python-Drawing-Program/blob/master/main.py)
 
