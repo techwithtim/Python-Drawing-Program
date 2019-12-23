@@ -64,9 +64,9 @@ def fill(spot, grid, color, c):
 def save(cols, rows, show, grid, path):
    if len(path) >= 4: # This just makes sure we have .txt at the end of our file selection
       if path[-4:] != '.txt':
-         path = path + '.txt'
+         path += '.txt'
    else:
-      path = path + '.txt'
+      path += '.txt'
 
    # Overwrite the current file, or if it doesn't exist create a new one
    file = open(path, 'w')
@@ -201,7 +201,7 @@ def initalize(cols, rows, showGrid=False):
    
    pygame.display.set_icon(paintBrush)   
    win = pygame.display.set_mode((int(wid), int(heigh) + 100))
-   pygame.display.set_caption('Untitled')
+   changeCaption('Untitled')
    win.fill((255,255,255))
 
    #CREATION OF OBJECTS
@@ -239,7 +239,9 @@ def initalize(cols, rows, showGrid=False):
    pygame.display.update()
 
 #-----------------------------------------------------------------------#
-    #TKINTER FORM FOR GETTING INPUT#
+               #TKINTER FORM FOR GETTING INPUT#
+#-----------------------------------------------------------------------#
+  
 window = Tk()
 window.title('Paint Program')
 
@@ -414,6 +416,7 @@ while run:
                                         x.click(grid.screen, color)
                                          
                 pygame.display.update()
+               
             except AttributeError:
                 pass
 

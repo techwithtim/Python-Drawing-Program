@@ -24,14 +24,14 @@ try:
     required = [line.strip().lower() for line in file_lines]
     file.close()
 except FileNotFoundError:
-    print("[ERROR] No requiremnts.txt file found")
+    print("[ERROR] requirements.txt file not found")
 
 
 if len(required) > 0:
     print("[INPUT] You are about to install", len(required), "packages, would you like to proceed (y/n):", end=" ")
     ans = input()
 
-    if ans.lower() == "y":
+    if ans.lower() == 'y' or ans.lower() == 'yes':
         for package in required:
             try:
                 print("[LOG] Looking for", package)
